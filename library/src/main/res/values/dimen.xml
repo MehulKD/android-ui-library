@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Toolbar -->
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbar_ic_margin">16dp</dimen>
+    <dimen name="toolbar_title_margin">72dp</dimen>
+
+    <!-- FAQ -->
+    <dimen name="item_faq_height">72dp</dimen>
+    <dimen name="item_faq_section_height">56dp</dimen>
+
+</resources>

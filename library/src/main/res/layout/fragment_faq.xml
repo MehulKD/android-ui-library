@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_grey"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lbl_faq_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_white_1000"
+        android:paddingBottom="20dp"
+        android:paddingLeft="@dimen/toolbar_ic_margin"
+        android:paddingRight="@dimen/toolbar_ic_margin"
+        android:paddingTop="20dp"
+        android:textColor="@color/text_default"
+        android:textSize="@dimen/subhead"
+        android:textStyle="bold"
+        tools:text="Did I ever tell you what the definition of insanity is? Insanity is doing the exact..."/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/lbl_faq_question"
+        android:clipToPadding="false"
+        android:paddingTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View style="@style/BeBound.Shadow.Above"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_white_1000"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/img_faq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/lbl_faq_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:lineSpacingExtra="8dp"
+                    android:linksClickable="true"
+                    android:minHeight="15dp"
+                    android:textColor="@color/text_default"
+                    android:textSize="@dimen/body"
+                    android:visibility="visible"
+                    tools:text="Bacon\ndsfklsdf\snfkjsdfjksdljfsd\nkljsdfklsdjfklsjdlfs"/>
+            </LinearLayout>
+
+            <View style="@style/BeBound.Shadow.Below"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/lbl_faq_question"
+        android:background="@drawable/shadow_below"/>
+
+</RelativeLayout>

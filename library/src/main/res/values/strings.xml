@@ -1,0 +1,42 @@
+<resources>
+    <!-- Dialog buttons -->
+    <string name="dialog_yes">YES</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_no">NO</string>
+    <string name="dialog_cancel">CANCEL</string>
+    <string name="dialog_close">CLOSE</string>
+    <string name="dialog_try_again">TRY AGAIN</string>
+    <string name="dialog_please_wait">Please wait &#8230;</string>
+    <string name="dialog_loading">Loading &#8230;</string>
+    <string name="dialog_contact_us">CONTACT US</string>
+    <string name="dialog_refill">REFILL</string>
+    <string name="dialog_exit">EXIT</string>
+    <string name="dialog_download_playstore">DOWNLOAD</string>
+    <string name="dialog_update">UPDATE</string>
+    <string name="dialog_open_playstore">OPEN PLAY STORE</string>
+    <string name="dialog_not_now">NOT NOW</string>
+
+    <!-- Snack -->
+    <string name="snack_application_not_found">Couldn\'t find the application</string>
+
+    <!-- Dialog text -->
+    <string name="dialog_changelog_title">What\'s new</string>
+    <string name="dialog_rate_title">Rate our app</string>
+    <string name="dialog_rate_content">Please help us and rate our app on the Play Store</string>
+
+    <!-- Menu/Actions -->
+    <string name="action_compose">New mail</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_reply">Reply</string>
+    <string name="action_reply_all">Reply All</string>
+    <string name="action_forward">Forward</string>
+    <string name="action_send">Send</string>
+    <string name="action_save">Save as draft</string>
+    <string name="action_undo">Undo</string>
+
+    <!-- FAQ -->
+    <string name="faq_title">FAQ</string>
+    <string name="faq_number">Q%d.</string>
+</resources>
+

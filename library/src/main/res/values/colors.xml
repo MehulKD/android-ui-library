@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_white">@color/grey_white_1000</color>
+    <color name="background_grey">@color/blue_grey_50</color>
+
+    <color name="text_default">#474E5C</color>
+    <color name="divider">#bcbcbc</color>
+</resources>

@@ -1,0 +1,39 @@
+<resources>
+    <!-- Dialog buttons -->
+    <string name="dialog_yes">موافق</string>
+    <string name="dialog_ok">نعم</string>
+    <string name="dialog_no">لا</string>
+    <string name="dialog_cancel">إلغاء</string>
+    <string name="dialog_close">غلق</string>
+    <string name="dialog_try_again">حاول مرة اخرى</string>
+    <string name="dialog_please_wait">...الرجاء الإنتظار</string>
+    <string name="dialog_loading">جاري التحميل...</string>
+    <string name="dialog_contact_us">إتصل بنا</string>
+    <string name="dialog_refill">إعادة التعبئة</string>
+    <string name="dialog_exit">خروج</string>
+    <string name="dialog_download_playstore">تحميل</string>
+    <string name="dialog_update">تحديث</string>
+    <string name="dialog_open_playstore">فتح متجر غوغل</string>
+
+    <!-- Snack -->
+    <string name="snack_application_not_found">لم يتم العثور على التطبيق</string>
+
+    <!-- Dialog text -->
+    <string name="dialog_changelog_title">ما الجديد</string>
+
+    <!-- Menu/Actions -->
+    <string name="action_compose">رسالة جديدة</string>
+    <string name="action_refresh">تحديث</string>
+    <string name="action_delete">حذف</string>
+    <string name="action_reply">الرد</string>
+    <string name="action_reply_all">الرد على الكل</string>
+    <string name="action_forward">تحويل</string>
+    <string name="action_send">إرسال</string>
+    <string name="action_save">حفظ كمسودة</string>
+    <string name="action_undo">تراجع</string>
+
+    <!-- FAQ -->
+    <string name="faq_title">الأسئلة الشائعة</string>
+    <string name="faq_number">س %d.</string>
+</resources>
+

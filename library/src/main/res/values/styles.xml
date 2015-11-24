@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BeBound">
+
+    </style>
+
+    <style name="BeBound.Shadow">
+    </style>
+
+    <style name="BeBound.Shadow.Below">
+        <item name="android:background">@drawable/shadow_below</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <style name="BeBound.Shadow.Above">
+        <item name="android:background">@drawable/shadow_above</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+</resources>
