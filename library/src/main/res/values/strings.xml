@@ -15,6 +15,8 @@
     <string name="dialog_update">UPDATE</string>
     <string name="dialog_open_playstore">OPEN PLAY STORE</string>
     <string name="dialog_not_now">NOT NOW</string>
+    <string name="dialog_rate">RATE NOW</string>
+    <string name="dialog_later">LATER</string>
 
     <!-- Snack -->
     <string name="snack_application_not_found">Couldn\'t find the application</string>

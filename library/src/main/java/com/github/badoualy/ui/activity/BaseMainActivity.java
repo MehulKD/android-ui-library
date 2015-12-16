@@ -38,7 +38,6 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
     private String version;
 
     private boolean callingSplash = false;
-    private boolean callingRateDialog = false;
 
     /** Note that you shouldn't load anything in onCreate, as no Be-Store variant may be installed */
     @Override
@@ -103,35 +102,6 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
             setCallingSplash(false); // Only override for splash
         } else
             super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected boolean onBackPressedAfterFragment() {
-//        if (!callingRateDialog && getResumeCount() >= RATE_APP_DIALOG_FREQUENCY && getResumeCount() % RATE_APP_DIALOG_FREQUENCY == 0) {
-//            callingRateDialog = true;
-//            new MaterialDialog.Builder(this)
-//                    .title(R.string.dialog_changelog_title)
-//                    .content(R.string.dialog_cancel)
-//                    .positiveText(R.string.dialog_ok)
-//                    .negativeText(R.string.dialog_not_now)
-//                    .cancelable(true)
-//                    .callback(new MaterialDialog.ButtonCallback() {
-//                        @Override
-//                        public void onPositive(MaterialDialog dialog) {
-//                            openPlayStore(getPackageName());
-//                        }
-//
-//                        @Override
-//                        public void onNegative(MaterialDialog dialog) {
-//                            onBackPressed();
-//                        }
-//                    })
-//                    .show();
-//            return true;
-//        }
-
-
-        return super.onBackPressedAfterFragment();
     }
 
     /**
