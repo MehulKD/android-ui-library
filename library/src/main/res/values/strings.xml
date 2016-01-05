@@ -15,8 +15,8 @@
     <string name="dialog_update">UPDATE</string>
     <string name="dialog_open_playstore">OPEN PLAY STORE</string>
     <string name="dialog_not_now">NOT NOW</string>
-    <string name="dialog_rate">RATE NOW</string>
-    <string name="dialog_later">LATER</string>
+    <string name="dialog_rate">Rate now!</string>
+    <string name="dialog_later">Later</string>
 
     <!-- Snack -->
     <string name="snack_application_not_found">Couldn\'t find the application</string>
@@ -24,7 +24,7 @@
     <!-- Dialog text -->
     <string name="dialog_changelog_title">What\'s new</string>
     <string name="dialog_rate_title">Rate our app</string>
-    <string name="dialog_rate_content">Please help us and rate our app on the Play Store</string>
+    <string name="dialog_rate_content">Help us grow and rate our app</string>
 
     <!-- Menu/Actions -->
     <string name="action_compose">New mail</string>
