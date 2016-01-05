@@ -23,7 +23,7 @@
 
     <!-- Dialog text -->
     <string name="dialog_changelog_title">What\'s new</string>
-    <string name="dialog_rate_title">Rate our app</string>
+    <string name="dialog_rate_title">RATE</string>
     <string name="dialog_rate_content">Help us grow and rate our app</string>
 
     <!-- Menu/Actions -->
