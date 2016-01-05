@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/github/release/badoualy/android-ui-library.svg?label=JitPack)](https://jitpack.io/#badoualy/android-ui-library/2.0.0)
+[![Release](https://img.shields.io/github/release/badoualy/android-ui-library.svg?label=JitPack)](https://jitpack.io/#badoualy/android-ui-library/2.0.4.2)
 
 How to use
 ----------------
@@ -13,7 +13,7 @@ repositories {
 
 Then, add the library dependency:
 ```gradle
-compile 'com.github.badoualy:android-ui-library:2.0.0'
+compile 'com.github.badoualy:android-ui-library:2.0.4.2'
 ```
 
 Now go do some awesome stuff!
