@@ -10,6 +10,7 @@
     <string name="dialog_loading">Loading &#8230;</string>
     <string name="dialog_contact_us">CONTACT US</string>
     <string name="dialog_refill">REFILL</string>
+    <string name="dialog_purchase">PURCHASE</string>
     <string name="dialog_exit">EXIT</string>
     <string name="dialog_download_playstore">DOWNLOAD</string>
     <string name="dialog_update">UPDATE</string>
