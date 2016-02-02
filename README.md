@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/github/release/badoualy/android-ui-library.svg?label=JitPack)](https://jitpack.io/#badoualy/android-ui-library/2.0.4.2)
+[![Release](https://jitpack.io/v/badoualy/android-ui-library.svg)](https://jitpack.io/#badoualy/android-ui-library)
 
 How to use
 ----------------
