@@ -1,39 +1,44 @@
 <resources>
     <!-- Dialog buttons -->
-    <string name="dialog_yes">موافق</string>
-    <string name="dialog_ok">نعم</string>
+    <string name="dialog_yes">نعم</string>
+    <string name="dialog_ok">موافق</string>
     <string name="dialog_no">لا</string>
     <string name="dialog_cancel">إلغاء</string>
-    <string name="dialog_close">غلق</string>
-    <string name="dialog_try_again">حاول مرة اخرى</string>
-    <string name="dialog_please_wait">...الرجاء الإنتظار</string>
-    <string name="dialog_loading">جاري التحميل...</string>
-    <string name="dialog_contact_us">إتصل بنا</string>
-    <string name="dialog_refill">إعادة التعبئة</string>
+    <string name="dialog_close">إغلاق</string>
+    <string name="dialog_try_again">إعادة المحاولة</string>
+    <string name="dialog_please_wait">يرجى الانتظار…</string>
+    <string name="dialog_loading">جاري التحميل…</string>
+    <string name="dialog_contact_us">اتصل بنا</string>
+    <string name="dialog_refill">إعادة ملء</string>
+    <string name="dialog_purchase">شراء</string>
     <string name="dialog_exit">خروج</string>
     <string name="dialog_download_playstore">تحميل</string>
     <string name="dialog_update">تحديث</string>
-    <string name="dialog_open_playstore">فتح متجر غوغل</string>
+    <string name="dialog_open_playstore">افتح المتجر</string>
+    <string name="dialog_not_now">ليس الآن</string>
+    <string name="dialog_rate">تقييم الآن!</string>
+    <string name="dialog_later">لاحقا</string>
 
     <!-- Snack -->
-    <string name="snack_application_not_found">لم يتم العثور على التطبيق</string>
+    <string name="snack_application_not_found">لم أستطع إيجاد التطبيق</string>
 
     <!-- Dialog text -->
-    <string name="dialog_changelog_title">ما الجديد</string>
+    <string name="dialog_changelog_title">ما هو الجديد</string>
+    <string name="dialog_rate_title">تقييم</string>
+    <string name="dialog_rate_content">ساعدنا على التوسع وقم بتقييم التطبيق</string>
 
     <!-- Menu/Actions -->
-    <string name="action_compose">رسالة جديدة</string>
+    <string name="action_compose">إيمايل جديد</string>
     <string name="action_refresh">تحديث</string>
     <string name="action_delete">حذف</string>
-    <string name="action_reply">الرد</string>
-    <string name="action_reply_all">الرد على الكل</string>
-    <string name="action_forward">تحويل</string>
+    <string name="action_reply">إعادة تشغيل</string>
+    <string name="action_reply_all">إعادة تشغيل الكل</string>
+    <string name="action_forward">إعادة توجيه</string>
     <string name="action_send">إرسال</string>
     <string name="action_save">حفظ كمسودة</string>
     <string name="action_undo">تراجع</string>
 
     <!-- FAQ -->
-    <string name="faq_title">الأسئلة الشائعة</string>
-    <string name="faq_number">س %d.</string>
+    <string name="faq_title">أسئلة شائعة</string>
+    <string name="faq_number">Q%d.</string>
 </resources>
-

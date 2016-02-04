@@ -1,16 +1,16 @@
 apply plugin: 'com.android.library'
 
 group = 'com.github.badoualy'
-version = '2.0.5'
+version = '2.1.0'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
+    buildToolsVersion rootProject.ext.buildToolsVersion as String
 
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 205
+        versionCode 210
         versionName version
     }
 
