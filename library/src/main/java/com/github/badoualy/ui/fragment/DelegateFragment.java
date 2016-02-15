@@ -2,6 +2,7 @@ package com.github.badoualy.ui.fragment;
 
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -22,6 +23,10 @@ public abstract class DelegateFragment extends Fragment {
 
     public final Context getApplicationContext() {
         return getActivity() != null ? getActivity().getApplicationContext() : null;
+    }
+
+    public final Application getApplication() {
+        return getActivity() != null ? getActivity().getApplication() : null;
     }
 
     @Override
