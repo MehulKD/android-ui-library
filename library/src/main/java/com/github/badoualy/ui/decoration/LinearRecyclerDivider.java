@@ -1,4 +1,4 @@
-package com.github.badoualy.ui.view;
+package com.github.badoualy.ui.decoration;
 
 import android.content.Context;
 import android.graphics.Canvas;

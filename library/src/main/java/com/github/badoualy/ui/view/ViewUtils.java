@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import android.util.TypedValue;
 import android.view.View;
 
-public class ViewUtils {
+class ViewUtils {
 
     public static int dpToPx(float dp, Resources resources) {
         float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());

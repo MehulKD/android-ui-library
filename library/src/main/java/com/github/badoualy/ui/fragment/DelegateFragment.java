@@ -4,6 +4,7 @@ package com.github.badoualy.ui.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
@@ -17,11 +18,7 @@ public abstract class DelegateFragment extends Fragment {
 
     protected final String TAG = getClass().getSimpleName();
 
-    protected boolean paused = true;
-
-    public final Context getContext() {
-        return getActivity();
-    }
+    private boolean paused = true;
 
     public final Context getApplicationContext() {
         return getActivity() != null ? getActivity().getApplicationContext() : null;
@@ -48,9 +45,9 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     Delegate getSupportActivity().getSupportActionBar() with null safety
-
-     @return the support action bar, null if not attached to an activity
+     * Delegate getSupportActivity().getSupportActionBar() with null safety
+     *
+     * @return the support action bar, null if not attached to an activity
      */
     public final ActionBar getSupportActionBar() {
         AppCompatActivity activity = getSupportActivity();
@@ -76,9 +73,9 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     @param id  the id of the view
-     @param <T> the type of the view
-     @return {@link View#findViewById(int)} with the supplied id, and cast it into T
+     * @param id  the id of the view
+     * @param <T> the type of the view
+     * @return {@link View#findViewById(int)} with the supplied id, and cast it into T
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T viewById(int id) {
@@ -86,9 +83,9 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     @param id  the id of the view
-     @param <T> the type of the view
-     @return {@link View#findViewById(int)} with the supplied id, and cast it into T
+     * @param id  the id of the view
+     * @param <T> the type of the view
+     * @return {@link View#findViewById(int)} with the supplied id, and cast it into T
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T viewById(int id, Class<T> clazz) {
@@ -96,9 +93,9 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     @param root the root of the view
-     @param id   the id of the view
-     @return {@link View#findViewById(int)} with the supplied id, and cast it into T
+     * @param root the root of the view
+     * @param id   the id of the view
+     * @return {@link View#findViewById(int)} with the supplied id, and cast it into T
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T viewById(View root, int id) {
@@ -106,10 +103,10 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     @param root the root of the view
-     @param id   the id of the view
-     @param <T>  the type of the view
-     @return {@link View#findViewById(int)} with the supplied id, and cast it into T
+     * @param root the root of the view
+     * @param id   the id of the view
+     * @param <T>  the type of the view
+     * @return {@link View#findViewById(int)} with the supplied id, and cast it into T
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T viewById(View root, int id, Class<T> clazz) {
@@ -134,9 +131,9 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     Delegate getSupportActionBar().setTitle(title)
-
-     @param title the new title
+     * Delegate getSupportActionBar().setTitle(title)
+     *
+     * @param title the new title
      */
     protected void setTitle(String title) {
         if (getSupportActionBar() != null)
@@ -146,9 +143,9 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     Delegate getSupportActionBar().setTitle(title)
-
-     @param subtitle the new subtitle
+     * Delegate getSupportActionBar().setTitle(title)
+     *
+     * @param subtitle the new subtitle
      */
     protected void setSubtitle(String subtitle) {
         if (getSupportActionBar() != null)
@@ -176,53 +173,61 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     Delegate getContext().getResources().getStringArray(id)
-
-     @param id
-     @return
+     * Delegate getContext().getResources().getStringArray(id)
+     *
+     * @param id
+     * @return
      */
     protected final String[] getStringArray(int id) {
         return getContext().getResources().getStringArray(id);
     }
 
     /**
-     Delegate getContext().getResources().getQuantityString(id, quantity)
-
-     @param id
-     @param quantity
-     @return
+     * Delegate getContext().getResources().getQuantityString(id, quantity)
+     *
+     * @param id
+     * @param quantity
+     * @return
      */
     protected final String getQuantityString(int id, int quantity) {
         return getContext().getResources().getQuantityString(id, quantity);
     }
 
     /**
-     Delegate getContext().getResources().getColor(id)
-
-     @param id
-     @return
+     * Delegate getContext().getResources().getColor(id)
+     *
+     * @param id
+     * @return
      */
     protected final int getColor(int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            return getContext().getResources().getColor(id, getContext().getTheme());
         return getContext().getResources().getColor(id);
     }
 
     /**
-     Delegate getContext().getDrawable(id)
-
-     @param id
-     @return
+     * Delegate getContext().getDrawable(id)
+     *
+     * @param id
+     * @return
      */
     protected final Drawable getDrawable(int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            return getContext().getResources().getDrawable(id, getContext().getTheme());
         return getContext().getResources().getDrawable(id);
     }
 
     /**
-     Delegate getContext().getResources().getDimensionPixelSize(id)
-
-     @param id
-     @return
+     * Delegate getContext().getResources().getDimensionPixelSize(id)
+     *
+     * @param id
+     * @return
      */
     protected final int getDimensionPixelSize(int id) {
         return getContext().getResources().getDimensionPixelSize(id);
+    }
+
+    public boolean isPaused() {
+        return paused;
     }
 }
