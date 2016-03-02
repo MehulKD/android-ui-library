@@ -15,7 +15,7 @@ import java.util.List;
 
 public class RecyclerActionModeWrapper<T> implements ActionMode.Callback {
 
-    protected final Activity activity;
+    protected final AppCompatActivity activity;
     protected final RecyclerView.Adapter adapter;
     private final ActionMode.Callback wrapped;
 
@@ -24,7 +24,7 @@ public class RecyclerActionModeWrapper<T> implements ActionMode.Callback {
 
     private boolean drawerLocked;
 
-    public RecyclerActionModeWrapper(Activity activity, RecyclerView.Adapter adapter, ActionMode.Callback wrapped) {
+    public RecyclerActionModeWrapper(AppCompatActivity activity, RecyclerView.Adapter adapter, ActionMode.Callback wrapped) {
         this.activity = activity;
         this.adapter = adapter;
         this.wrapped = wrapped;
@@ -32,8 +32,7 @@ public class RecyclerActionModeWrapper<T> implements ActionMode.Callback {
         selectedItems = new ArrayList<>();
         mode = null;
 
-        drawerLocked = ((activity instanceof ActionBarHandler) && ((NavigationDrawerHandler) activity)
-                .isNavigationDrawerLocked());
+        drawerLocked = ((activity instanceof NavigationDrawerHandler) && ((NavigationDrawerHandler) activity).isNavigationDrawerLocked());
     }
 
     public boolean isInActionMode() {
@@ -50,7 +49,7 @@ public class RecyclerActionModeWrapper<T> implements ActionMode.Callback {
         if (wrapped != null)
             wrapped.onCreateActionMode(mode, menu);
 
-        ((AppCompatActivity) activity).onSupportActionModeStarted(mode);
+        activity.onSupportActionModeStarted(mode);
         return true;
     }
 
@@ -75,7 +74,7 @@ public class RecyclerActionModeWrapper<T> implements ActionMode.Callback {
         if (wrapped != null)
             wrapped.onDestroyActionMode(mode);
 
-        ((AppCompatActivity) activity).onSupportActionModeFinished(mode);
+        activity.onSupportActionModeFinished(mode);
         this.mode = null;
     }
 
@@ -106,9 +105,10 @@ public class RecyclerActionModeWrapper<T> implements ActionMode.Callback {
             mode.setSubtitle(subtitle);
     }
 
-    /** Override this method to update the title, or anything when the selection changed
-
-     @param count total count of selected items
+    /**
+     * Override this method to update the title, or anything when the selection changed
+     *
+     * @param count total count of selected items
      */
     public void onSelectionChanged(int count) {
     }
