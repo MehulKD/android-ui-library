@@ -6,13 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
- A custom RecyclerAdapter that handle a list of items as a collection (much like ListView's ArrayAdapter)
-
- @param <T> Collection type
- @param <V> ViewHolder type */
+ * A custom RecyclerAdapter that handle a list of items as a collection (much like ListView's ArrayAdapter)
+ *
+ * @param <T> Collection type
+ * @param <V> ViewHolder type
+ */
 public abstract class BaseArrayRecyclerAdapter<T, V extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<V> {
 
     private Context context;
@@ -92,6 +95,15 @@ public abstract class BaseArrayRecyclerAdapter<T, V extends RecyclerView.ViewHol
 
     public int indexOf(T item) {
         return items.indexOf(item);
+    }
+
+    public void sort() {
+        List<? extends Comparable> items = (List<? extends Comparable>) this.items;
+        Collections.sort(items);
+    }
+
+    public void sort(Comparator<T> comparator) {
+        Collections.sort(items, comparator);
     }
 
     /** @return true if the item decorator should draw a divider for the item at the given position */
