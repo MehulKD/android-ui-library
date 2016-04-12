@@ -13,7 +13,7 @@ repositories {
 
 Then, add the library dependency:
 ```gradle
-compile 'com.github.badoualy:android-ui-library:2.1.0'
+compile 'com.github.badoualy:android-ui-library:2.1.6'
 ```
 
 Now go do some awesome stuff!
