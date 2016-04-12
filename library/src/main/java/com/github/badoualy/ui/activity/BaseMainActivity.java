@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- Provide a simple implementation for basic feature of an application's main activity, like displaying a splash screen or a change log Only
- the main activity class (launcher activity) should override this class
+ * Provide a simple implementation for basic feature of an application's main activity, like displaying a splash screen or a change log Only
+ * the main activity class (launcher activity) should override this class
  */
 public abstract class BaseMainActivity extends BaseActivity implements SplashConfig, ChangeLogProvider {
 
@@ -55,6 +55,8 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
             setCallingSplash(true);
             Log.d(TAG, "Launch count is 0, will call startSplash()");
             startSplash();
+        } else if (!version.equalsIgnoreCase(lastLaunchVersion)) {
+            onApplicationUpdated(lastLaunchVersion, version);
         }
     }
 
@@ -105,9 +107,9 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
     }
 
     /**
-     Increment the launch counter of this BeApp
-
-     @return the current launch count (before incrementation)
+     * Increment the launch counter of this BeApp
+     *
+     * @return the current launch count (before incrementation)
      */
     @SuppressLint("CommitPrefEdits")
     private int incrementLaunchCount(SharedPreferences preferences) {
@@ -118,9 +120,9 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
     }
 
     /**
-     Increment the resume counter of this BeApp
-
-     @return the current launch count (before incrementation)
+     * Increment the resume counter of this BeApp
+     *
+     * @return the current launch count (before incrementation)
      */
     @SuppressLint("CommitPrefEdits")
     private int incrementResumeCount(SharedPreferences preferences) {
@@ -216,5 +218,9 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
 
     public boolean isCallingSplash() {
         return callingSplash;
+    }
+
+    public void onApplicationUpdated(String oldVersion, String currentVersion) {
+
     }
 }
