@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/root"
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/item_faq_height"
-    android:background="@drawable/bg_selectable_item"
-    android:clickable="true"
-    android:focusable="true"
-    android:orientation="horizontal"
-    android:padding="16dp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/background_white">
 
-    <TextView
-        android:id="@+id/lbl_faq_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="top"
-        android:textColor="@color/text_default"
-        android:textSize="@dimen/body"
-        android:textStyle="bold"
-        tools:text="Q1."/>
-
-    <TextView
-        android:id="@+id/lbl_faq_question"
+    <RelativeLayout
+        android:id="@+id/root"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/lbl_faq_number"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="6dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginStart="56dp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textColor="@color/text_default"
-        android:textSize="@dimen/body"
-        android:textStyle="bold"
-        tools:text="Did I ever tell you what the definition of insanity is? Insanity is doing the exact... same fucking thing... over and over again expecting... shit to change... That. Is. Crazy."/>
+        android:layout_height="@dimen/item_faq_height"
+        android:background="@drawable/bg_selectable_item"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/lbl_faq_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="top"
+            android:textColor="@color/text_default"
+            android:textSize="@dimen/body"
+            android:textStyle="bold"
+            tools:text="Q1."/>
+
+        <TextView
+            android:id="@+id/lbl_faq_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/lbl_faq_number"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="56dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/text_default"
+            android:textSize="@dimen/body"
+            android:textStyle="bold"
+            tools:text="Did I ever tell you what the definition of insanity is? Insanity is doing the exact... same fucking thing... over and over again expecting... shit to change... That. Is. Crazy."/>
+
+    </RelativeLayout>
+</LinearLayout>
