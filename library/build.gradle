@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 group = 'com.github.badoualy'
-version = '2.1.9'
+version = '2.1.10'
 
 def SUPPORT_LIB = "23.4.0"
 
@@ -12,7 +12,7 @@ android {
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 217
+        versionCode 1
         versionName version
     }
 
