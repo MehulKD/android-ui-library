@@ -76,21 +76,23 @@ public class RecyclerActionModeWrapper<T> implements ActionMode.Callback {
         this.mode = null;
     }
 
-    public final void onItemTap(T item, int position) {
+    public final boolean onItemTap(T item) {
         if (mode == null)
-            return;
+            return false;
 
+        boolean selected = false;
         if (selectedItems.contains(item)) {
             selectedItems.remove(item);
             if (selectedItems.isEmpty())
                 mode.finish();
         } else {
             selectedItems.add(item);
+            selected = true;
         }
 
         if (!selectedItems.isEmpty())
             onSelectionChanged(selectedItems.size());
-        adapter.notifyItemChanged(position);
+        return selected;
     }
 
     protected final void setTitle(String title) {
