@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 group = 'com.github.badoualy'
-version = '2.1.10'
+version = '2.1.11'
 
 def SUPPORT_LIB = "23.4.0"
 
@@ -35,6 +35,6 @@ dependencies {
 
     // UI
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    compile('com.afollestad.material-dialogs:core:0.8.5.8@aar') { transitive = true }
-    compile('com.afollestad.material-dialogs:commons:0.8.5.8@aar') { transitive = true }
+    compile 'com.afollestad.material-dialogs:core:0.8.6.1'
+    compile 'com.afollestad.material-dialogs:commons:0.8.6.1'
 }

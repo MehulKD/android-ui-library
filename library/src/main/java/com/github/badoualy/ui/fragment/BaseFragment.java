@@ -150,14 +150,14 @@ public abstract class BaseFragment extends DelegateFragment {
     /**
      @return the title to display in the ActionBar
      */
-    protected String getTitle() {
+    protected CharSequence getTitle() {
         return null;
     }
 
     /**
      @return the subtitle to display in the ActionBar
      */
-    protected String getSubtitle() {
+    protected CharSequence getSubtitle() {
         return null;
     }
 
