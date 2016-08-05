@@ -1,13 +1,11 @@
 package com.github.badoualy.ui.adapter.recycler;
 
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.github.badoualy.ui.listener.ActionBarHandler;
 import com.github.badoualy.ui.listener.NavigationDrawerHandler;
 
 import java.util.ArrayList;
@@ -78,21 +76,23 @@ public class RecyclerActionModeWrapper<T> implements ActionMode.Callback {
         this.mode = null;
     }
 
-    public final void onItemTap(T item) {
+    public final boolean onItemTap(T item) {
         if (mode == null)
-            return;
+            return false;
 
+        boolean selected = false;
         if (selectedItems.contains(item)) {
             selectedItems.remove(item);
             if (selectedItems.isEmpty())
                 mode.finish();
         } else {
             selectedItems.add(item);
+            selected = true;
         }
 
         if (!selectedItems.isEmpty())
             onSelectionChanged(selectedItems.size());
-        adapter.notifyDataSetChanged();
+        return selected;
     }
 
     protected final void setTitle(String title) {
