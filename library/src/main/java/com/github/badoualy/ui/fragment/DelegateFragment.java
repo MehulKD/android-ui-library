@@ -5,9 +5,9 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.IBinder;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -205,9 +205,7 @@ public abstract class DelegateFragment extends Fragment {
      * @return
      */
     protected final int getColor(int id) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            return getContext().getResources().getColor(id, getContext().getTheme());
-        return getContext().getResources().getColor(id);
+        return ContextCompat.getColor(getContext(), id);
     }
 
     /**
@@ -217,9 +215,7 @@ public abstract class DelegateFragment extends Fragment {
      * @return
      */
     protected final Drawable getDrawable(int id) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            return getContext().getResources().getDrawable(id, getContext().getTheme());
-        return getContext().getResources().getDrawable(id);
+        return ContextCompat.getDrawable(getContext(), id);
     }
 
     /**
