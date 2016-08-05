@@ -18,7 +18,8 @@ public final class DialogUtils {
         final Application application = activity.getApplication();
         if (application instanceof AppConfig) {
             final AppConfig config = (AppConfig) application;
-            builder.positiveColor(config.getAccentColor());
+            builder.positiveColor(config.getAccentColor())
+                   .negativeColor(config.getAccentColor());
         }
 
         return builder;
