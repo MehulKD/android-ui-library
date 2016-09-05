@@ -70,7 +70,6 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         for (int i = 0; i < childCount; i++) {
             final View child = parent.getChildAt(i);
 
-
             if (parent.getAdapter() instanceof BaseArrayRecyclerAdapter) {
                 final int adapterPosition = parent.getChildAdapterPosition(child);
                 if (!((BaseArrayRecyclerAdapter) parent.getAdapter()).hasDivider(adapterPosition))

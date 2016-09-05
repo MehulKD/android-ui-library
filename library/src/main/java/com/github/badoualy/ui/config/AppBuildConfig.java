@@ -1,6 +1,6 @@
 package com.github.badoualy.ui.config;
 
-/** Provide some information about the build of the app, useful for external mdules */
+/** Provide some information about the build of the app, useful for external modules */
 public interface AppBuildConfig {
 
     /** @return true if the app is debug build */
