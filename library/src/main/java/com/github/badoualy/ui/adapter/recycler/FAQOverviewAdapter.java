@@ -97,6 +97,8 @@ public class FAQOverviewAdapter extends BaseArrayRecyclerAdapter<IFAQItem, Recyc
             super(itemView);
 
             root = (ViewGroup) itemView.findViewById(R.id.root);
+            root.setBackgroundResource(R.drawable.bg_selectable_item);
+            root.getBackground().mutate();
             lblNumber = (TextView) itemView.findViewById(R.id.lbl_faq_number);
             lblQuestion = (TextView) itemView.findViewById(R.id.lbl_faq_question);
 
