@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 group = 'com.github.badoualy'
-version = '2.2.1'
+version = '2.2.2'
 
 def SUPPORT_LIB = "24.2.0"
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         minSdkVersion 10
