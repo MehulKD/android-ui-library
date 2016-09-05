@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 group = 'com.github.badoualy'
 version = '2.1.11'
 
-def SUPPORT_LIB = "23.4.0"
+def SUPPORT_LIB = "24.2.0"
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion as Integer
@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         minSdkVersion 10
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName version
     }
@@ -35,6 +35,6 @@ dependencies {
 
     // UI
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    compile 'com.afollestad.material-dialogs:core:0.8.6.1'
-    compile 'com.afollestad.material-dialogs:commons:0.8.6.1'
+    compile 'com.afollestad.material-dialogs:core:0.9.0.1'
+    compile 'com.afollestad.material-dialogs:commons:0.9.0.1'
 }
