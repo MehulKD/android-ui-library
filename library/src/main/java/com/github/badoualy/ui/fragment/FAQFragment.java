@@ -22,7 +22,7 @@ public class FAQFragment extends BaseFragment {
     private boolean toolbarMargin = false;
 
     @Override
-    protected String getTitle() {
+    protected CharSequence getTitle() {
         return "Q" + faq.number;
     }
 
