@@ -1,8 +1,8 @@
 package com.github.badoualy.ui.listener;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.app.Fragment;
+import android.app.FragmentManager;
 
 public interface FragmentTransactionHandler {
 

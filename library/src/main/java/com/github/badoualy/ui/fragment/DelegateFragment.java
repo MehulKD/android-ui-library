@@ -3,13 +3,13 @@ package com.github.badoualy.ui.fragment;
 
 import android.app.Activity;
 import android.app.Application;
+import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.IBinder;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -163,9 +163,9 @@ public abstract class DelegateFragment extends Fragment {
     }
 
 
-    /** Delegate getContext().getSupportFragmentManager().popBackStack() */
+    /** Delegate getActivity().getSupportFragmentManager().popBackStack() */
     public final void finish() {
-        getActivity().getSupportFragmentManager().popBackStack();
+        getActivity().getFragmentManager().popBackStack();
     }
 
     /** Thread-safe finish */
@@ -181,54 +181,54 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     * Delegate getContext().getResources().getStringArray(id)
+     * Delegate getActivity().getResources().getStringArray(id)
      *
      * @param id
      * @return
      */
     protected final String[] getStringArray(int id) {
-        return getContext().getResources().getStringArray(id);
+        return getActivity().getResources().getStringArray(id);
     }
 
     /**
-     * Delegate getContext().getResources().getQuantityString(id, quantity)
+     * Delegate getActivity().getResources().getQuantityString(id, quantity)
      *
      * @param id
      * @param quantity
      * @return
      */
     protected final String getQuantityString(int id, int quantity) {
-        return getContext().getResources().getQuantityString(id, quantity);
+        return getActivity().getResources().getQuantityString(id, quantity);
     }
 
     /**
-     * Delegate getContext().getResources().getColor(id)
+     * Delegate getActivity().getResources().getColor(id)
      *
      * @param id
      * @return
      */
     protected final int getColor(@ColorRes int id) {
-        return ContextCompat.getColor(getContext(), id);
+        return ContextCompat.getColor(getActivity(), id);
     }
 
     /**
-     * Delegate getContext().getDrawable(id)
+     * Delegate getActivity().getDrawable(id)
      *
      * @param id
      * @return
      */
     protected final Drawable getDrawable(@DrawableRes int id) {
-        return ContextCompat.getDrawable(getContext(), id);
+        return ContextCompat.getDrawable(getActivity(), id);
     }
 
     /**
-     * Delegate getContext().getResources().getDimensionPixelSize(id)
+     * Delegate getActivity().getResources().getDimensionPixelSize(id)
      *
      * @param id
      * @return
      */
     protected final int getDimensionPixelSize(@DimenRes int id) {
-        return getContext().getResources().getDimensionPixelSize(id);
+        return getActivity().getResources().getDimensionPixelSize(id);
     }
 
     public boolean isPaused() {
