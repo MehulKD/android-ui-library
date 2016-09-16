@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 group = 'com.github.badoualy'
 version = '2.2.6'
 
-def SUPPORT_LIB = "24.2.0"
+def SUPPORT_LIB = "24.2.1"
 
 android {
     compileSdkVersion 24
