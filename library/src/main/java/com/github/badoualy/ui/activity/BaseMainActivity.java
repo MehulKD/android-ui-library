@@ -5,27 +5,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.github.badoualy.ui.R;
-import com.github.badoualy.ui.config.ChangeLogProvider;
 import com.github.badoualy.ui.config.SplashConfig;
-import com.github.badoualy.ui.model.ChangeLog;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Provide a simple implementation for basic feature of an application's main activity, like displaying a splash screen or a change log Only
  * the main activity class (launcher activity) should override this class
  */
-public abstract class BaseMainActivity extends BaseActivity implements SplashConfig, ChangeLogProvider {
+public abstract class BaseMainActivity extends BaseActivity implements SplashConfig {
 
     public static final int REQUEST_CODE_SPLASH = 1992;
-
-    private static final int RATE_APP_DIALOG_FREQUENCY = 10;
 
     private static final String PREFERENCES_APP = "AppPreferences";
     private static final String KEY_LAUNCH_COUNT = "launchCount";
@@ -69,23 +59,6 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
             resumeCount = prefs.getInt(KEY_RESUME_COUNT, 1);
             incrementResumeCount(prefs);
             updateLastLaunchVersion(prefs);
-
-            if (!lastLaunchVersion.equalsIgnoreCase(version)) {
-                Log.d(TAG, "Updated from " + lastLaunchVersion + " to " + version);
-                String[] versionFields = version.split(" ")[0].split("\\.");
-                if (versionFields.length < 3) {
-                    Log.e(TAG, "Version name has an incorrect format! " + version);
-                    return;
-                }
-
-                String[] lastVersionFields = lastLaunchVersion.split(" ")[0].split("\\.");
-                if (lastVersionFields.length < 3) {
-                    Log.e(TAG, "Last version name has an incorrect format! " + lastLaunchVersion);
-                    return;
-                }
-
-                showChangeLogDialog();
-            }
         }
     }
 
@@ -147,6 +120,10 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
         return resumeCount;
     }
 
+    public String getLastLaunchVersion() {
+        return lastLaunchVersion;
+    }
+
     /** Reset the launch count of this application to 0 */
     protected void resetLaunchCount() {
         getSharedPreferences(PREFERENCES_APP, MODE_PRIVATE)
@@ -167,48 +144,6 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
             return;
         }
         startActivityForResult(intent, REQUEST_CODE_SPLASH);
-    }
-
-    private void showChangeLogDialog() {
-        List<ChangeLog> changeLogs = getRelevantChangeLogs();
-        if (!changeLogs.isEmpty()) {
-            StringBuilder contentBuilder = new StringBuilder();
-            for (ChangeLog changeLog : changeLogs) {
-                contentBuilder.append(changeLog.toHtmlString()).append("<br>");
-            }
-            String content = contentBuilder.toString();
-            content = content.substring(0, content.length() - 8);
-
-            new MaterialDialog.Builder(this)
-                    .title(R.string.dialog_changelog_title)
-                    .content(Html.fromHtml(content))
-                    .positiveText(R.string.dialog_ok)
-                    .cancelable(true)
-                    .show();
-        } else
-            Log.d(TAG, "No change log available");
-    }
-
-    private List<ChangeLog> getRelevantChangeLogs() {
-        List<ChangeLog> changeLogsFull = ((ChangeLogProvider) this).getChangeLogs();
-        List<ChangeLog> changeLogs = new ArrayList<>();
-
-        if (changeLogsFull != null) {
-            String[] lastLaunchVersionFields = lastLaunchVersion.split(" ")[0].split("\\.");
-            int lastMajor = Integer.parseInt(lastLaunchVersionFields[0]);
-            int lastMinor = Integer.parseInt(lastLaunchVersionFields[1]);
-            int lastHotfix = Integer.parseInt(lastLaunchVersionFields[2]);
-
-            for (ChangeLog log : changeLogsFull) {
-                if (log.versionMajor > lastMajor || (log.versionMajor == lastMajor && log.versionMinor > lastMinor)
-                        || (log.versionMajor == lastMajor && log.versionMinor == lastMinor && log.versionHotfix > lastHotfix))
-                    changeLogs.add(log);
-                else
-                    break;
-            }
-        }
-
-        return changeLogs;
     }
 
     protected void setCallingSplash(boolean callingSplash) {

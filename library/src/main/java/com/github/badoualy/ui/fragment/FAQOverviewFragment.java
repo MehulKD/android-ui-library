@@ -21,7 +21,7 @@ import android.view.ViewGroup;
 import com.github.badoualy.ui.R;
 import com.github.badoualy.ui.activity.FAQActivity;
 import com.github.badoualy.ui.adapter.recycler.FAQOverviewAdapter;
-import com.github.badoualy.ui.decoration.DividerItemDecoration;
+import com.github.badoualy.ui.decoration.LinearDividerDecoration;
 import com.github.badoualy.ui.model.FAQ;
 import com.github.badoualy.ui.model.FAQSection;
 import com.github.badoualy.ui.model.FAQSectionEnd;
@@ -93,7 +93,7 @@ public class FAQOverviewFragment extends BaseFragment implements FAQOverviewAdap
         recyclerFaq.setHasFixedSize(true);
         recyclerFaq.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerFaq
-                .addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL, R.drawable.divider_faq));
+                .addItemDecoration(new LinearDividerDecoration(getContext(), LinearLayoutManager.VERTICAL, R.drawable.divider_faq));
         recyclerFaq.setAdapter(new FAQOverviewAdapter(getContext(), faqList, color, this));
     }
 
