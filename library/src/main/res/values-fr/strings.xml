@@ -1,0 +1,45 @@
+<resources>
+    <!-- Dialog buttons -->
+    <string name="dialog_yes">OUI</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_no">NON</string>
+    <string name="dialog_cancel">ANNULER</string>
+    <string name="dialog_close">FERMER</string>
+    <string name="dialog_try_again">TRY AGAIN</string>
+    <string name="dialog_please_wait">Veuillez patienter &#8230;</string>
+    <string name="dialog_loading">Chargement &#8230;</string>
+    <string name="dialog_contact_us">CONTACT</string>
+    <string name="dialog_refill">RECHARGER</string>
+    <string name="dialog_purchase">ACHETER</string>
+    <string name="dialog_exit">QUITTER</string>
+    <string name="dialog_download_playstore">DOWNLOAD</string>
+    <string name="dialog_update">METTRE A JOUR</string>
+    <string name="dialog_open_playstore">OUVRIR PLAY STORE</string>
+    <string name="dialog_not_now">PAS MAINTENANT</string>
+    <string name="dialog_rate">Noter!</string>
+    <string name="dialog_later">Plus tard</string>
+
+    <!-- Snack -->
+    <string name="snack_application_not_found">Impossible de trouver l'application</string>
+
+    <!-- Dialog text -->
+    <string name="dialog_changelog_title">Nouveautés</string>
+    <string name="dialog_rate_title">NOTER</string>
+    <string name="dialog_rate_content">Aidez nous et notez notre app</string>
+
+    <!-- Menu/Actions -->
+    <string name="action_compose">Nouveau mail</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_delete">Supprimer</string>
+    <string name="action_reply">Répondre</string>
+    <string name="action_reply_all">Répondre à tous</string>
+    <string name="action_forward">Transférer</string>
+    <string name="action_send">Envoyer</string>
+    <string name="action_save">Sauvegarder en tant que brouillon</string>
+    <string name="action_undo">Annuler</string>
+
+    <!-- FAQ -->
+    <string name="faq_title">FAQ</string>
+    <string name="faq_number">Q%d.</string>
+</resources>
+

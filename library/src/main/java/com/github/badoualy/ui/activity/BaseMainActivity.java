@@ -155,7 +155,7 @@ public abstract class BaseMainActivity extends BaseActivity implements SplashCon
         return callingSplash;
     }
 
-    public void onApplicationUpdated(String oldVersion, String currentVersion) {
+    protected void onApplicationUpdated(String oldVersion, String currentVersion) {
 
     }
 }
