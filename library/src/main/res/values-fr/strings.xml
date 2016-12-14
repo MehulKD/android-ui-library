@@ -20,7 +20,7 @@
     <string name="dialog_later">Plus tard</string>
 
     <!-- Snack -->
-    <string name="snack_application_not_found">Impossible de trouver l'application</string>
+    <string name="snack_application_not_found">Impossible de trouver l\'application</string>
 
     <!-- Dialog text -->
     <string name="dialog_changelog_title">Nouveautés</string>
