@@ -2,6 +2,7 @@ package com.github.badoualy.ui.fragment;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -13,33 +14,33 @@ import com.github.badoualy.ui.listener.SnackHandler;
 
 
 /**
- A BasicFragment that should be extended by almost all fragments except fragments displayed in ViewPager
+ * A BasicFragment that should be extended by almost all fragments except fragments displayed in ViewPager
  */
 public abstract class BaseFragment extends DelegateFragment {
 
     /**
-     EventBus default priority, lower than BaseFragment
+     * EventBus default priority, lower than BaseFragment
      */
     protected static final int DEFAULT_PRIORITY = 300;
 
     /**
-     Display back-arrow instead of NavigationDrawer toggle
+     * Display back-arrow instead of NavigationDrawer toggle
      */
     public static final int DISPLAY_HOME_AS_UP = 1;
     /**
-     Lock NavigationDrawer closed
+     * Lock NavigationDrawer closed
      */
     public static final int DISPLAY_DRAWER_LOCKED = 1 << 1;
     /**
-     Has menu to inflate in ActionBar
+     * Has menu to inflate in ActionBar
      */
     public static final int DISPLAY_HAS_MENU = 1 << 2;
     /**
-     Hide the title in ActionBar
+     * Hide the title in ActionBar
      */
     public static final int DISPLAY_NO_TITLE = 1 << 3;
     /**
-     Hide the navigation icon in ActionBar
+     * Hide the navigation icon in ActionBar
      */
     public static final int DISPLAY_NO_NAVIGATION_ICON = 1 << 4;
 
@@ -99,8 +100,8 @@ public abstract class BaseFragment extends DelegateFragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(containsFlags(DISPLAY_HAS_MENU));
 
         ActionBar actionBar = getSupportActionBar();
@@ -125,8 +126,7 @@ public abstract class BaseFragment extends DelegateFragment {
         }
 
         if (navDrawerHandler != null) {
-            navDrawerHandler
-                    .setNavigationDrawerLocked(containsFlags(DISPLAY_DRAWER_LOCKED | DISPLAY_NO_NAVIGATION_ICON));
+            navDrawerHandler.setNavigationDrawerLocked(containsFlags(DISPLAY_DRAWER_LOCKED | DISPLAY_NO_NAVIGATION_ICON));
         } else {
             Log.d(TAG, "navDrawerHandler is null");
         }
@@ -139,37 +139,37 @@ public abstract class BaseFragment extends DelegateFragment {
     }
 
     /**
-     Called when back button is pressed
-
-     @return true if the event was consumed
+     * Called when back button is pressed
+     *
+     * @return true if the event was consumed
      */
     public boolean onBackPressed() {
         return false;
     }
 
     /**
-     @return the title to display in the ActionBar
+     * @return the title to display in the ActionBar
      */
     protected CharSequence getTitle() {
         return null;
     }
 
     /**
-     @return the subtitle to display in the ActionBar
+     * @return the subtitle to display in the ActionBar
      */
     protected CharSequence getSubtitle() {
         return null;
     }
 
     /**
-     @return a combination of DISPLAY_* flags
+     * @return a combination of DISPLAY_* flags
      */
     protected int getDisplayFlags() {
         return 0;
     }
 
     /**
-     @return true if {@link com.github.badoualy.ui.fragment.BaseFragment#getDisplayFlags()} contains the given flags
+     * @return true if {@link com.github.badoualy.ui.fragment.BaseFragment#getDisplayFlags()} contains the given flags
      */
     private boolean containsFlags(int flags) {
         return (getDisplayFlags() & flags) != 0;
@@ -180,7 +180,7 @@ public abstract class BaseFragment extends DelegateFragment {
     }
 
     /**
-     Overwrite this to register to components (EventBus, ...). This method is called from onStart()
+     * Overwrite this to register to components (EventBus, ...). This method is called from onStart()
      */
     public void register() {
 

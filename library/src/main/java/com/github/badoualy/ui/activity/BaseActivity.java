@@ -2,6 +2,9 @@ package com.github.badoualy.ui.activity;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -13,9 +16,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -32,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
 
     protected final String TAG = getClass().getSimpleName();
     /**
-     EventBus default priority, lower than BaseFragment.DEFAULT_PRIORITY
+     * EventBus default priority, lower than BaseFragment.DEFAULT_PRIORITY
      */
     protected final int DEFAULT_PRIORITY = 200;
 
@@ -78,7 +78,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     Close the soft input keyboard if open
+     * Close the soft input keyboard if open
      */
     public final void closeKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -91,8 +91,8 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     Override default behavior to process event in fragment first if instance of BaseFragment, then the activity if
-     needed, and the default behavior if none consumed the event
+     * Override default behavior to process event in fragment first if instance of BaseFragment, then the activity if
+     * needed, and the default behavior if none consumed the event
      */
     @Override
     public void onBackPressed() {
@@ -109,16 +109,16 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     Called when back button is pressed and if the fragment displayed didn't consume the event
-
-     @return true if the event was consumed
+     * Called when back button is pressed and if the fragment displayed didn't consume the event
+     *
+     * @return true if the event was consumed
      */
     protected boolean onBackPressedAfterFragment() {
         return false;
     }
 
     /**
-     Clear user data, this will ForceClose the app
+     * Clear user data, this will ForceClose the app
      */
     public void clearUserData() {
         for (String s : databaseList()) {
@@ -136,7 +136,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     @return {@link AppCompatActivity#findViewById(int)} with the supplied id, and cast it into T
+     * @return {@link AppCompatActivity#findViewById(int)} with the supplied id, and cast it into T
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T viewById(int id) {
@@ -144,7 +144,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     @return {@link AppCompatActivity#findViewById(int)} with the supplied id, and cast it into T
+     * @return {@link AppCompatActivity#findViewById(int)} with the supplied id, and cast it into T
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T viewById(int id, Class<T> clazz) {
@@ -152,7 +152,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     @return {@link View#findViewById(int)} with the supplied id, and cast it into T
+     * @return {@link View#findViewById(int)} with the supplied id, and cast it into T
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T viewById(View root, int id) {
@@ -160,7 +160,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     @return {@link View#findViewById(int)} with the supplied id, and cast it into T
+     * @return {@link View#findViewById(int)} with the supplied id, and cast it into T
      */
     @SuppressWarnings("unchecked")
     public <T extends View> T viewById(View root, int id, Class<T> clazz) {
@@ -168,13 +168,13 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     @return the id of the main fragment container for this activity
+     * @return the id of the main fragment container for this activity
      */
     public abstract int getFragmentContainerId();
 
     /**
-     Call {@link BaseActivity#displayFragment(Fragment, boolean, boolean)} with addToBackStack = true and clearBack =
-     false
+     * Call {@link BaseActivity#displayFragment(Fragment, boolean, boolean)} with addToBackStack = true and clearBack =
+     * false
      */
     @Override
     public final void displayFragment(Fragment fragment) {
@@ -182,7 +182,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     Call {@link BaseActivity#displayFragment(Fragment, boolean, boolean)} with clearBack = false
+     * Call {@link BaseActivity#displayFragment(Fragment, boolean, boolean)} with clearBack = false
      */
     @Override
     public final void displayFragment(Fragment fragment, boolean addToBackStack) {
@@ -190,15 +190,15 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     Display the given fragment in the {@link BaseActivity#getFragmentContainerId()}
-
-     @param fragment       fragment to display
-     @param addToBackStack should the transaction be added in the stack
-     @param clearStack     should the back stack be cleared before the execution of the transaction
+     * Display the given fragment in the {@link BaseActivity#getFragmentContainerId()}
+     *
+     * @param fragment       fragment to display
+     * @param addToBackStack should the transaction be added in the stack
+     * @param clearStack     should the back stack be cleared before the execution of the transaction
      */
     @Override
     public final void displayFragment(Fragment fragment, boolean addToBackStack, boolean clearStack) {
-        FragmentManager fm = getSupportFragmentManager();
+        FragmentManager fm = getFragmentManager();
         if (clearStack && fm.getBackStackEntryCount() > 0)
             fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
@@ -211,46 +211,46 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
     }
 
     /**
-     @return the current fragment displayed in {@link BaseActivity#getFragmentContainerId()}
+     * @return the current fragment displayed in {@link BaseActivity#getFragmentContainerId()}
      */
     public final Fragment getCurrentFragment() {
-        return getSupportFragmentManager().findFragmentById(getFragmentContainerId());
+        return getFragmentManager().findFragmentById(getFragmentContainerId());
     }
 
     /**
-     Remove the currently displayed fragment
+     * Remove the currently displayed fragment
      */
     public final void removeFragment() {
         if (getCurrentFragment() != null)
-            getSupportFragmentManager().beginTransaction().remove(getCurrentFragment()).commit();
+            getFragmentManager().beginTransaction().remove(getCurrentFragment()).commit();
     }
 
     /**
-     @return true if the sdk version of the device is sdkCode
+     * @return true if the sdk version of the device is sdkCode
      */
     public final boolean isSDK(int sdkCode) {
         return Build.VERSION.SDK_INT == sdkCode;
     }
 
     /**
-     @return true if the sdk version of the device is greater or equal to sdkCode
+     * @return true if the sdk version of the device is greater or equal to sdkCode
      */
     public final boolean isSDKOrAbove(int sdkCode) {
         return Build.VERSION.SDK_INT >= sdkCode;
     }
 
     /**
-     @return true if the sdk version of the device is greater than sdkCode
+     * @return true if the sdk version of the device is greater than sdkCode
      */
     public final boolean isSDKAbove(int sdkCode) {
         return Build.VERSION.SDK_INT > sdkCode;
     }
 
     /**
-     Retrieve the version name from the package name. THIS IS NOT BuildConfig.VERSION_NAME, being in a different module
-     this value is wrong.
-
-     @return the application version name (NOT the library version code)
+     * Retrieve the version name from the package name. THIS IS NOT BuildConfig.VERSION_NAME, being in a different module
+     * this value is wrong.
+     *
+     * @return the application version name (NOT the library version code)
      */
     public String getApplicationVersionName() {
         try {
@@ -301,7 +301,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
 
     @Override
     public void executeTransaction(FragmentTransactionRunnable transactionRunnable) {
-        transactionRunnable.run(getSupportFragmentManager(), getFragmentContainerId());
+        transactionRunnable.run(getFragmentManager(), getFragmentContainerId());
     }
 
     @Override
