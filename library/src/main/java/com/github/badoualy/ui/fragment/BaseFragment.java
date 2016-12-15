@@ -3,7 +3,6 @@ package com.github.badoualy.ui.fragment;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
@@ -104,15 +103,6 @@ public abstract class BaseFragment extends DelegateFragment {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(containsFlags(DISPLAY_HAS_MENU));
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayShowTitleEnabled(!containsFlags(DISPLAY_NO_TITLE) && getTitle() != null);
-            actionBar.setTitle(getTitle());
-            actionBar.setSubtitle(getSubtitle());
-        } else {
-            Log.d(TAG, "SupportActionBar is null");
-        }
-
         if (getToolbar() != null) {
             Drawable navigationIcon = getToolbar().getNavigationIcon();
             if (navigationIcon != null)
@@ -120,6 +110,12 @@ public abstract class BaseFragment extends DelegateFragment {
         }
 
         if (actionBarHandler != null) {
+            CharSequence title = getTitle();
+            boolean displayTitle = !containsFlags(DISPLAY_NO_TITLE) && title != null;
+            actionBarHandler.setDisplayTitle(displayTitle);
+            if (displayTitle)
+                actionBarHandler.setFragmentTitle(title);
+            actionBarHandler.setFragmentSubtitle(getSubtitle());
             actionBarHandler.setHomeAsUpEnabled(containsFlags(DISPLAY_HOME_AS_UP));
         } else {
             Log.d(TAG, "ActionBarHandler is null");

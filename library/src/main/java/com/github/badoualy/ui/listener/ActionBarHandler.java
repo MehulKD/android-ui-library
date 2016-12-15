@@ -5,12 +5,21 @@ import android.support.v7.widget.Toolbar;
 /** Some convenience method to act on the actionbar without having to cast the activity */
 public interface ActionBarHandler {
 
-    /** Enable/Disable the back button as the navigation icon in the ActionBar
-
-     @param enabled true if the HomeAsUp should be enabled
+    /**
+     * Enable/Disable the back button as the navigation icon in the ActionBar
+     *
+     * @param enabled true if the HomeAsUp should be enabled
      */
     void setHomeAsUpEnabled(boolean enabled);
 
     /** @return The toolbar used as ActionBar or null */
     Toolbar getToolbar();
+
+    void setDisplayTitle(boolean displayTitle);
+
+    /** Set the title */
+    void setFragmentTitle(CharSequence title);
+
+    /** Set the subtitle */
+    void setFragmentSubtitle(CharSequence subtitle);
 }
