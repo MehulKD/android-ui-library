@@ -78,4 +78,19 @@ public class FAQActivity extends BaseActivity implements ActionBarHandler {
     public Toolbar getToolbar() {
         return toolbar;
     }
+
+    @Override
+    public void setDisplayTitle(boolean displayTitle) {
+
+    }
+
+    @Override
+    public void setFragmentTitle(CharSequence title) {
+
+    }
+
+    @Override
+    public void setFragmentSubtitle(CharSequence subtitle) {
+
+    }
 }
