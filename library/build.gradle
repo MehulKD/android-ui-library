@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 group = 'com.github.badoualy'
-version = '2.4.0'
+version = '2.4.1'
 
 def SUPPORT_LIB = "25.1.0"
 

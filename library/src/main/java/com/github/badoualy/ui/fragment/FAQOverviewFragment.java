@@ -91,10 +91,10 @@ public class FAQOverviewFragment extends BaseFragment implements FAQOverviewAdap
 
         // getToolbar().setBackgroundColor(color);
         recyclerFaq.setHasFixedSize(true);
-        recyclerFaq.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerFaq.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerFaq
-                .addItemDecoration(new LinearDividerDecoration(getContext(), LinearLayoutManager.VERTICAL, R.drawable.divider_faq));
-        recyclerFaq.setAdapter(new FAQOverviewAdapter(getContext(), faqList, color, this));
+                .addItemDecoration(new LinearDividerDecoration(getActivity(), LinearLayoutManager.VERTICAL, R.drawable.divider_faq));
+        recyclerFaq.setAdapter(new FAQOverviewAdapter(getActivity(), faqList, color, this));
     }
 
     @Override
