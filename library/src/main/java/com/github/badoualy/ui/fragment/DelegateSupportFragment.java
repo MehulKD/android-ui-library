@@ -1,24 +1,24 @@
 package com.github.badoualy.ui.fragment;
 
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Application;
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.IBinder;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 /** A basic fragment to handle some basics operations, mostly delegates */
-public abstract class DelegateFragment extends Fragment {
+public abstract class DelegateSupportFragment extends Fragment {
 
     protected final String TAG = getClass().getSimpleName();
 
@@ -49,24 +49,11 @@ public abstract class DelegateFragment extends Fragment {
     }
 
     /**
-     * Delegate getSupportActivity().getActionBar() with null safety
-     *
-     * @return the action bar, null if not attached to an activity
-     */
-    public final ActionBar getActionBar() {
-        AppCompatActivity activity = getSupportActivity();
-        if (activity != null)
-            return activity.getActionBar();
-
-        return null;
-    }
-
-    /**
      * Delegate getSupportActivity().getSupportActionBar() with null safety
      *
      * @return the support action bar, null if not attached to an activity
      */
-    public final android.support.v7.app.ActionBar getSupportActionBar() {
+    public final ActionBar getSupportActionBar() {
         AppCompatActivity activity = getSupportActivity();
         if (activity != null)
             return activity.getSupportActionBar();

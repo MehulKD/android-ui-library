@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 group = 'com.github.badoualy'
-version = '2.4.1'
+version = '2.4.2'
 
-def SUPPORT_LIB = "25.1.0"
+def SUPPORT_LIB = "25.3.0"
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         minSdkVersion 14
@@ -34,6 +34,6 @@ dependencies {
     compile("com.android.support:cardview-v7:$SUPPORT_LIB")
 
     // UI
-    compile 'com.afollestad.material-dialogs:core:0.9.1.0'
-    compile 'com.afollestad.material-dialogs:commons:0.9.1.0'
+    compile 'com.afollestad.material-dialogs:core:0.9.4.2'
+    compile 'com.afollestad.material-dialogs:commons:0.9.4.2'
 }
