@@ -6,8 +6,7 @@ import java.util.*
 
 abstract class BaseArrayRecyclerAdapter<T, V : RecyclerView.ViewHolder>(val context: Context, items: Collection<T>) : RecyclerView.Adapter<V>() {
 
-    val items: MutableList<T> = ArrayList(items)
-        get() = ArrayList(field)
+    private val items: MutableList<T> = ArrayList(items)
 
     constructor(context: Context, items: Array<T>) : this(context, Arrays.asList(*items)) {}
 
@@ -48,4 +47,6 @@ abstract class BaseArrayRecyclerAdapter<T, V : RecyclerView.ViewHolder>(val cont
     fun sort(comparator: Comparator<T>) {
         Collections.sort(items, comparator)
     }
+
+    fun getItems() = ArrayList(items)
 }
