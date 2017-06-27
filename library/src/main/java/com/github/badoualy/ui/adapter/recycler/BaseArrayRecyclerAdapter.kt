@@ -6,7 +6,7 @@ import java.util.*
 
 abstract class BaseArrayRecyclerAdapter<T, V : RecyclerView.ViewHolder>(val context: Context, items: Collection<T>) : RecyclerView.Adapter<V>() {
 
-    private val items: MutableList<T> = ArrayList(items)
+    protected val items: MutableList<T> = ArrayList(items)
 
     constructor(context: Context, items: Array<T>) : this(context, Arrays.asList(*items)) {}
 
