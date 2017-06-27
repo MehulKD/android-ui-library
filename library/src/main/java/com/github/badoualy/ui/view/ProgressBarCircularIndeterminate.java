@@ -1,6 +1,7 @@
 package com.github.badoualy.ui.view;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,9 +10,11 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 
 /**
- @author https://github.com/navasmdc/MaterialDesignLibrary */
+ * @author https://github.com/navasmdc/MaterialDesignLibrary
+ */
 public class ProgressBarCircularIndeterminate extends CustomView {
 
     final static String ANDROIDXML = "http://schemas.android.com/apk/res/android";
@@ -51,8 +54,8 @@ public class ProgressBarCircularIndeterminate extends CustomView {
     }
 
     private void init(AttributeSet attrs) {
-        setMinimumHeight(ViewUtils.dpToPx(32, getResources()));
-        setMinimumWidth(ViewUtils.dpToPx(32, getResources()));
+        setMinimumHeight(dpToPx(32, getResources()));
+        setMinimumWidth(dpToPx(32, getResources()));
 
         // Set background Color
         // Color by resource
@@ -64,7 +67,7 @@ public class ProgressBarCircularIndeterminate extends CustomView {
             setBackgroundColor(background != -1 ? background : Color.parseColor("#1E88E5"));
         }
 
-        setMinimumHeight(ViewUtils.dpToPx(3, getResources()));
+        setMinimumHeight(dpToPx(3, getResources()));
         init2();
     }
 
@@ -83,7 +86,7 @@ public class ProgressBarCircularIndeterminate extends CustomView {
         backgroundPaint.setColor(backgroundColor);
 
         defaultPaint = new Paint();
-        dp4Px = ViewUtils.dpToPx(4, getResources());
+        dp4Px = dpToPx(4, getResources());
     }
 
     public void reset() {
@@ -100,13 +103,14 @@ public class ProgressBarCircularIndeterminate extends CustomView {
     // Set color of background
     public void setBackgroundColor(int color) {
         super.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-        if (isEnabled())
+        if (isEnabled()) {
             beforeBackground = backgroundColor;
+        }
         this.backgroundColor = color;
     }
 
     /**
-     Make a dark color to ripple effect
+     * Make a dark color to ripple effect
      */
     protected int makePressColor() {
         int r = (backgroundColor >> 16) & 0xFF;
@@ -131,8 +135,9 @@ public class ProgressBarCircularIndeterminate extends CustomView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (!firstAnimationOver)
+        if (!firstAnimationOver) {
             drawFirstAnimation(canvas);
+        }
         if (cont > 0) {
             drawSecondAnimation(canvas);
         }
@@ -148,23 +153,27 @@ public class ProgressBarCircularIndeterminate extends CustomView {
             myCanvas.drawCircle(getWidth() / 2, getHeight() / 2, getHeight() / 2, pressPaint);
 
             float value = (float) getWidth() / 2;
-            if (cont < 50)
+            if (cont < 50) {
                 value -= dp4Px;
+            }
             radius2 = Math.min(radius2 + 1, value);
 
             myCanvas.drawCircle(getWidth() / 2, getHeight() / 2, radius2, transparentPaint);
             canvas.drawBitmap(bitmap, 0, 0, defaultPaint);
 
-            if (radius2 >= getWidth() / 2 - dp4Px)
+            if (radius2 >= getWidth() / 2 - dp4Px) {
                 cont++;
-            if (radius2 >= getWidth() / 2)
+            }
+            if (radius2 >= getWidth() / 2) {
                 firstAnimationOver = true;
+            }
         }
     }
 
     private void drawSecondAnimation(Canvas canvas) {
-        if (arcO == limit)
+        if (arcO == limit) {
             arcD += 6;
+        }
         if (arcD >= 290 || arcO > limit) {
             arcO += 6;
             arcD -= 6;
@@ -180,9 +189,14 @@ public class ProgressBarCircularIndeterminate extends CustomView {
         bitmap2.eraseColor(Color.TRANSPARENT);
         myCanvas2.drawArc(new RectF(0, 0, getWidth(), getHeight()), arcO, arcD, true, backgroundPaint);
 
-        myCanvas2.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - ViewUtils
-                .dpToPx(4, getResources()), transparentPaint);
+        myCanvas2.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - dpToPx(4, getResources()),
+                             transparentPaint);
 
         canvas.drawBitmap(bitmap2, 0, 0, defaultPaint);
+    }
+
+    static int dpToPx(float dp, Resources resources) {
+        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
+        return (int) px;
     }
 }
