@@ -13,7 +13,7 @@ abstract class BaseActivity : AppCompatActivity(), FragmentTransactionHandler {
     protected val TAG = javaClass.simpleName!!
 
     var lifeCycleListener: ActivityLifeCycleListener? = null
-    val fragmentContainerId: Int
+    open val fragmentContainerId: Int
         get() = 0
     val currentFragment: Fragment?
         get() = fragmentManager.findFragmentById(fragmentContainerId)

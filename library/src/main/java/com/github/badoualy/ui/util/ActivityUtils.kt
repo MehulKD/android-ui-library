@@ -15,6 +15,11 @@ fun Activity.closeKeyboard() {
     }
 }
 
+fun Activity.finish(result: Int) {
+    setResult(result)
+    finish()
+}
+
 fun Activity.postFinish() = runOnUiThread { finish() }
 fun Activity.postFinish(result: Int = Activity.RESULT_OK) = runOnUiThread {
     setResult(result)
