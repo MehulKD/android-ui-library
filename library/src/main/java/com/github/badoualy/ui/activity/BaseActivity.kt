@@ -23,7 +23,7 @@ abstract class BaseActivity : AppCompatActivity(), FragmentTransactionHandler {
         lifeCycleListener?.onActivityCreated()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         lifeCycleListener?.onActivityResulted(requestCode, resultCode, data)
     }
@@ -95,7 +95,7 @@ abstract class BaseActivity : AppCompatActivity(), FragmentTransactionHandler {
 
     interface ActivityLifeCycleListener {
         fun onActivityCreated()
-        fun onActivityResulted(requestCode: Int, resultCode: Int, data: Intent)
+        fun onActivityResulted(requestCode: Int, resultCode: Int, data: Intent?)
         fun onActivityResumed()
         fun onActivityPaused()
         fun onActivityStopped()
