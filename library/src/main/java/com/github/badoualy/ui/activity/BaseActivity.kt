@@ -12,36 +12,10 @@ abstract class BaseActivity : AppCompatActivity(), FragmentTransactionHandler {
 
     protected val TAG = javaClass.simpleName!!
 
-    var lifeCycleListener: ActivityLifeCycleListener? = null
     open val fragmentContainerId: Int
         get() = 0
     val currentFragment: Fragment?
         get() = fragmentManager.findFragmentById(fragmentContainerId)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        lifeCycleListener?.onActivityCreated()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        lifeCycleListener?.onActivityResulted(requestCode, resultCode, data)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        lifeCycleListener?.onActivityResumed()
-    }
-
-    override fun onPause() {
-        lifeCycleListener?.onActivityPaused()
-        super.onPause()
-    }
-
-    override fun onStop() {
-        lifeCycleListener?.onActivityStopped()
-        super.onStop()
-    }
 
     /**
      * Override default behavior to process event in fragment first if instance of BaseFragment, then the activity if
@@ -91,13 +65,5 @@ abstract class BaseActivity : AppCompatActivity(), FragmentTransactionHandler {
         if (currentFragment != null) {
             fragmentManager.beginTransaction().remove(currentFragment).commit()
         }
-    }
-
-    interface ActivityLifeCycleListener {
-        fun onActivityCreated()
-        fun onActivityResulted(requestCode: Int, resultCode: Int, data: Intent?)
-        fun onActivityResumed()
-        fun onActivityPaused()
-        fun onActivityStopped()
     }
 }

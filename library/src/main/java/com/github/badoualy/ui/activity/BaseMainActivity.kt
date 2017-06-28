@@ -7,11 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import com.github.badoualy.ui.util.getApplicationVersionName
 
-/**
- * Provide a simple implementation for basic feature of an application's main activity, like displaying a splash screen
- * or a change log Only
- * the main activity class (launcher activity) should override this class
- */
 abstract class BaseMainActivity : BaseActivity() {
 
     var launchCount: Long = 0
@@ -21,20 +16,18 @@ abstract class BaseMainActivity : BaseActivity() {
     private lateinit var lastLaunchVersion: String
     private lateinit var version: String
 
-    /**
-     * Note that you shouldn't load anything in onCreate, as no Be-Store variant may be installed
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val preferences = getSharedPreferences(PREFERENCES_APP, Context.MODE_PRIVATE)
-        launchCount = preferences.getLong(KEY_LAUNCH_COUNT, 0)
+        val prefs = getSharedPreferences(PREFERENCES_APP, Context.MODE_PRIVATE)
+        launchCount = prefs.getLong(KEY_LAUNCH_COUNT, 0)
         version = getApplicationVersionName().orEmpty()
-        lastLaunchVersion = preferences.getString(KEY_LAST_LAUNCH_VERSION, version)
-        incrementLaunchCount(preferences)
+        lastLaunchVersion = prefs.getString(KEY_LAST_LAUNCH_VERSION, version)
+        incrementLaunchCount(prefs)
 
         if (launchCount > 0 && !version.equals(lastLaunchVersion, ignoreCase = true)) {
             onApplicationUpdated(lastLaunchVersion, version)
+            updateLastLaunchVersion(prefs)
         }
     }
 
@@ -44,7 +37,6 @@ abstract class BaseMainActivity : BaseActivity() {
         val prefs = getSharedPreferences(PREFERENCES_APP, MODE_PRIVATE)
         resumeCount = prefs.getLong(KEY_RESUME_COUNT, 1)
         incrementResumeCount(prefs)
-        updateLastLaunchVersion(prefs)
     }
 
     @SuppressLint("CommitPrefEdits")
@@ -79,7 +71,7 @@ abstract class BaseMainActivity : BaseActivity() {
                 .apply()
     }
 
-    protected fun onApplicationUpdated(oldVersion: String, currentVersion: String) {
+    protected open fun onApplicationUpdated(oldVersion: String, currentVersion: String) {
 
     }
 
